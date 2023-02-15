@@ -1,0 +1,1 @@
+В функции errorCatcher() не нужно писать setLoading(false)

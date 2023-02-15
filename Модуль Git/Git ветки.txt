@@ -1,0 +1,17 @@
+git branch - посмотреть ветки
+
+git branch "pagination" - добавить ветку "pagination" название без ковычек
+
+git status - просмотр изменений
+
+git add . +++ добовление фалов в стейдж
+
+git commit -m "разделение веток"
+
+git checkout master --- переключение между ветками
+
+git remote -v --- посмотреть адрес репозитория
+
+git push origin pagination  ---  Отправка изменений в ветку на удаленном репозитории origin или адрес,
+ а pagination это название ветки
+

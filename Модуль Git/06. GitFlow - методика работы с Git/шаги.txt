@@ -1,0 +1,19 @@
+GitFlow 
+0. git status
+0. git commit -m
+0. git
+0. git branch -d  удалить ветку
+0. git merge мёржим в main
+0. git pull origin develop забираем изменения с гит хаба в vs code
+1. Создать репозиторий и слонировать на комп git clone "ссылка"
+2. Создаем новую ветку develop от главной ветки (master, main)с помощьюь git branch develop
+3. Проверяем наличие веток git branch
+4. Переключаемся с помощью git checkout develop
+5. Отправляем ветку на гит хаб git push origin develop
+6. Создание новой ветки и переход на неё git checkout -b feature/about-page 
+
+4. Создание ветки release/0.1.0 от develop
+5. Когда ветка release/0.1.0 закончена, то она мержится в develop и main и затем удаляется.
+6. Если в ветке main обнаружевается ошибка, то создается hotfix ветка.
+7. Когда работа над hotfix-веткой завершается, то ее нужно мержить в develop и main.
+

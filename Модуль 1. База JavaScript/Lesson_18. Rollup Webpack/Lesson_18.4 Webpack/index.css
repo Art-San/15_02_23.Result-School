@@ -1,0 +1,11 @@
+body {
+    background: rebeccapurple;
+    padding: 30px 50px;
+    margin: 0;
+    color: azure;
+}
+
+.js-image {
+    width: 200px;
+    height: 200px;
+}

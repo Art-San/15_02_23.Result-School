@@ -1,0 +1,33 @@
+1 Скачивание репозитория на компьютер--- git clone
+
+2.Инициализация проекта Git--- git init
+
+3.Создание нового репозитория--- git remote -v
+                                 git remote add origin
+
+4. Посмотреть папки---- ls
+4.1 Посмотреть папки включ скрытые ---- ls -a
+
+5. Создаем из терминала на гит хабе файлы --- git init
+
+6. проверяем связан ли наш проэкт с гит-репозиторием ---- git remote -v
+7. связываем проэкт с гит репозитор ------ git remote add origin {git@github.com:Art-San/react-bootstrap-crash-corse.git}
+
+
+8. Проверить измен файлы git status --- git status
+
+9.  Добавляет файлы в стейдж (обязательно) ---- git add .
+
+10. Записывам, пишем комет(обязательно) --- git commit -m "первая запись"
+
+11. проверка записи (необязательно) --- git log
+
+12.1 с помощью git remote -v смотрим ссылку, а git branch название ветки
+12. добав на гит хаб (обязательно) --- git push [rep.linc] [branch name]
+12. добав на гит хаб (обязательно) --- git push origin master
+
+git config user.name
+git config user.email
+git config user.email "новая почта"
+
+

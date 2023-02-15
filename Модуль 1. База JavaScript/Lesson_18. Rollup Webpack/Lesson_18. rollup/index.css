@@ -1,0 +1,11 @@
+body {
+    background: skyblue;
+    padding: 0;
+    margin: 0;
+    color: azure;
+}
+
+.js-image {
+    width: 200px;
+    height: 200px;
+}

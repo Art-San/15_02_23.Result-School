@@ -1,0 +1,5 @@
+git branch - посмотреть ветки
+
+git remote -v - проверка привязки проекта к гитхабу
+
+git remote add origin пишем оригин(обычно так делают) затем ссылку https://github.com/Art-San/react-router-R.S.-.git
