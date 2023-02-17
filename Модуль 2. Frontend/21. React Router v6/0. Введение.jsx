@@ -14,3 +14,9 @@
 // 7. Новый Protected Route
 // 8. <NavLink> и <Link>
 // 9. useRoutes()
+
+// Стартовый код (RR5): ссылка
+// https://drive.google.com/drive/folders/1drqUCrW2V1wDpGmC0bE9ZaulDjqdT_aX
+
+// Итоговый проект (RR6): ссылка
+// https://drive.google.com/drive/folders/1GVCMHsqtPTkO2fTS65ujlybuCO_Ucjkg
