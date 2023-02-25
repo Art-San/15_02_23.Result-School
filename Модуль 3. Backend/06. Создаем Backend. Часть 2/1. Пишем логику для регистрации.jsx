@@ -6,8 +6,8 @@
 
 // Доп пакеты для реализаци регистрации
 
-npm install bcryptjs jsonwebtoken express-validator
+// npm install bcryptjs jsonwebtoken express-validator
 
-npm i bcryptjs
-npm i jsonwebtoken
-npm i express-validator
+// npm i bcryptjs
+// npm i jsonwebtoken
+// npm i express-validator
