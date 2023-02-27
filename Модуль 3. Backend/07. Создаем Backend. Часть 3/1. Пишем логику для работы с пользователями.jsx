@@ -76,5 +76,5 @@
 
 // | URL           | Auth | Type  | Body | Query | Return |
 // | ---           | ---  | ---   | ---  | ---   | ---    |
-// | /api/user/:id | true | patch | User | null  | User   | // patch обновляет данные 
+// | /api/user/:id | true | patch | User | null  | User   | // patch обновлен 
 // | /api/user     | true | get   | null | null  | User[] |
