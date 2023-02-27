@@ -1,5 +1,6 @@
 // ApiEndpoints: ссылка
 // https://vladilen.notion.site/Api-Endpoints-9c0dc0d186c84447b293c0ac986e6c00
+// =============================================================================================
 
 // Auth
 
@@ -75,5 +76,5 @@
 
 // | URL           | Auth | Type  | Body | Query | Return |
 // | ---           | ---  | ---   | ---  | ---   | ---    |
-// | /api/user/:id | true | patch | User | null  | User   |
+// | /api/user/:id | true | patch | User | null  | User   | // patch обновляет данные 
 // | /api/user     | true | get   | null | null  | User[] |

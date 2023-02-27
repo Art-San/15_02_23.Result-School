@@ -1,6 +1,24 @@
 // Файлы к практике: ссылка
 // https://vladilen.notion.site/d59208ea56ad4b50b5c9081deabcbcbb
 
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function generateUserData() {
+  return {
+    rate: getRandomInt(1, 5),
+    completedMeetings: getRandomInt(0, 200),
+    image: `https://avatars.dicebear.com/api/avataaars/${(Math.random() + 1)
+      .toString(36)
+      .substring(7)}.svg`,
+  }
+}
+
+module.exports = {
+  generateUserData
+}
+
 [
     { "_id": "67rdca3eeb7f6fgeed471818", "name": "Доктор" },
     { "_id": "67rdca3eeb7f6fgeed471820", "name": "Официант" },
