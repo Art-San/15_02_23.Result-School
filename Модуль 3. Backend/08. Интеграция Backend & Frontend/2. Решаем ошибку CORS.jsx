@@ -1,6 +1,9 @@
 // утанавливаем на сервер доп пакет 
 // npm install cors
 
+// cors - технология позволяющая предоставить веб-страницам 
+// доступ к ресурсам другого домена
+
 const express = require('express')
 const mongoose = require('mongoose') 
 const chalk = require('chalk')
