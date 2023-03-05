@@ -4,3 +4,5 @@
 // Что такое MongoDB Atlas Database?
 // Глобальный облачный сервис баз данных для приложений
 
+// Замена MongoDB?
+// https://qna.habr.com/q/1132268
