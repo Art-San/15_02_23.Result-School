@@ -1,5 +1,7 @@
 docker -v
-// docker build -t jfd . (-t-называем, (.)-в конце указывает где искать файл инструкцию Dockerfile (в этой папке))
+
+docker build -t jfd . //(-t-называем, (.)-в конце указывает где искать файл инструкцию Dockerfile (в этой папке))
+
 clear
 
 docker image ls
@@ -16,7 +18,7 @@ docker stop jfd
 
 clear
 
-docker run -d -p 8080:8080 --name jfd --rm jfd // Запускаем с привычным портом 8080:8080
+docker run -d -p 80:8080 --name jfd --rm jfd // Запускаем с привычным портом 8080:8080
 
 docker stop jfd // ФИНАЛ УРОКА
 
