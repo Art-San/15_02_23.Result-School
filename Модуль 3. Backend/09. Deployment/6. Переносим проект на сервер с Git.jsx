@@ -1,6 +1,35 @@
 // Решил попробовать через Win +R cmd
+git clone https://github.com/Art-San/03.Backend-09.Deployment.git
+
+// потом
+ls // 03.Backend-09.Deployment  boot  etc   lib    lib64   lost+found  mnt  proc  run   srv  tmp  var
+
+// потом
+cd 03.Backend-09.Deployment/ // перешли 
+
+ls  // client  Dockerfile  server
+docker -v // проверяем на наличие - стоит - Docker version 23.0.1, build a5ee5b1
+//----------------------------------------------------------------------------------
+// Теперь строим образ
+
+docker build -t jfd . // jfd - название, точка в конце потомучто мы находимся в этой папке
+
+// ---------------
+// теперь смотрим есть ли образ
+docker image ls
+//------------------------------------------------------------
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+jfd          latest    1329c9eccefc   6 minutes ago   177MB
+// ------------------------------------------------------------
+
+docker run -d -p 80:8080 --name jfd --rm jfd // нажали интер
+
+docker ps  // это смотрим работает ли контейнер
 
 
+
+
+//============================================================================================
 rm -rf .git  // удаляет git из проэкта
 
 Команды для перемещения по каталогу в терминале:
