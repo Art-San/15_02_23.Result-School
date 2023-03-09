@@ -7,3 +7,6 @@
 // Специально для вас мы подготовили инструкцию, 
 // ак работать с одним из таких сервисов: ссылка
 // https://vladilen.notion.site/MongoDB-Cloud-Clever-Cloud-6949186a158e40d08e2ff691cdda526a
+
+
+// https://www.clever-cloud.com/
