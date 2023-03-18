@@ -9,7 +9,7 @@ CONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS       POR
 
 docker rm jfd // это первое что мы сделали
 
-docker Image rm jfd // удаляем образ
+docker image rm jfd // удаляем образ
 clear
 // теперь там нет ни чего чтоб относилось dockery
 docker image ls // все пустое
