@@ -1,3 +1,4 @@
+cd .. // выход на один уровень вверх
 docker -v
 
 // .dockerignore - nod_mudules и другие
@@ -10,13 +11,13 @@ LTS версию Node.js (FROM node:16-alpine)
 
 Дополнительные материалы:
 
-// Docker Desktop: ссылка
+Docker Desktop: ссылка
 // https://www.docker.com/products/docker-desktop
-// Docker: ссылка
+Docker: ссылка
 // https://www.youtube.com/watch?v=n9uCgUzfeRQ&feature=youtu.be
-// Как ученик школы ты можете приобрести курс по Docker со скидкой 30%. 
-// Для этого напишите в службу поддержки курса сообщение с промокодом dockerstudent 
-// и тебе помогут оплатить данный курс со скидкой
+Как ученик школы ты можете приобрести курс по Docker со скидкой 30%. 
+Для этого напишите в службу поддержки курса сообщение с промокодом dockerstudent 
+и тебе помогут оплатить данный курс со скидкой
 
 // устанавливаем докер на комп
 // https://www.docker.com/products/docker-desktop/

@@ -1,26 +1,32 @@
 docker -v
 
+// команда для создания образа под названием jfd
 docker build -t jfd . //(-t-называем, (.)-в конце указывает где искать файл инструкцию Dockerfile (в этой папке))
+"jfd--- с маленкой буквы"
 
 clear
-
+// команда для проверки наличия образа 
 docker image ls
-REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
-jfd          latest    033bab48ced6   3 hours ago   196MB
 
-строим контейнер 
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+mernblog     latest    df9c4f05a7a0   20 minutes ago   174MB
 
-docker run -d -p 3000:8080 --name jfd --rm jfd  // тест какойто
 
-docker ps -a
+// строим контейнер 
+// контейнер строим на основе названия образа mernblog
 
-docker stop jfd
+................ Тест Какойто ..................
+docker run -d -p 3000:8080 --name mernblog --rm mernblog  // тест какойто
 
+docker ps -a // проверка рабочего состояния
+
+docker stop mernblog
 clear
 
-docker run -d -p 80:8080 --name jfd --rm jfd // Запускаем с привычным портом 8080:8080
+................. Строим контейнер ..............
+docker run -d -p 8080:8080 --name mernblog --rm mernblog // Запускаем с привычным портом 8080:8080
 
-docker stop jfd // ФИНАЛ УРОКА
+docker stop mernblog // ФИНАЛ УРОКА
 
 // ===========================================================
 Сохраните изменения в вашем Dockerfile, 
@@ -29,5 +35,4 @@ docker build -t my-image-name .. Это должно работать сейча
 // ==================================================================
 
 
-// => CANCELED [stage-1 4/6] RUN npm instal                                                                               7.9s 
-// => ERROR [client 4/6] RUN npm instal    
+               MERN-Blog 2022 на этом уроке все запустилось
