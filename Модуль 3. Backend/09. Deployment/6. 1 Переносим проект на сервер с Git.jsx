@@ -45,6 +45,7 @@ docker build -t mernblog .
 // docker image ls
 
 6. Получаем обновленные данные с GIT
+// root@aulgsyxwup:~/YTb_MERN-Blog_2022_Let-s_try# // нужно находится примерно тут
 // git pull
 
 7. Просто так смотрим
@@ -54,3 +55,10 @@ docker build -t mernblog .
 
 8. И поновой 
 // docker build -t mernblog .
+
+И так образ был построен НЕ спервого раза 
+
+10. Теперь котейнер только надо понять 80:8080 иди 8080:8080  (80:8080 так в видео)
+// docker run -d -p 80:8080 --name mernblog --rm mernblog
+
+--rm mernblog -- Это говорим с какого образа строить контейнер
