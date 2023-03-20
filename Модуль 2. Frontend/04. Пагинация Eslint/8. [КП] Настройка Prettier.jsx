@@ -9,6 +9,17 @@ module.exports = {
 	useTabs: true, // Делайте отступы с помощью табуляции вместо пробелов.
 	bracketSameLine: true
 }
+
+{
+	"tabWidth": 4,
+	"singleQuote": true,
+	"jsxSingleQuote": true,
+	"arrowParens": "avoid",
+	"semi": false,
+	"trailingComma": "none",
+	"useTabs": true,
+	"bracketSameLine": false
+}
 // Bracket Line defoalt // false
 // true
 <button
