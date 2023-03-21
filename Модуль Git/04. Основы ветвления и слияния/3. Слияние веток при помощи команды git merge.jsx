@@ -22,3 +22,5 @@ git push origin mainpage // mainpage - это название ветки --- д
 // после  этого пишем команду git merge и название ветки из которой берем изминения
 
 git merge mainpage
+
+git merge
