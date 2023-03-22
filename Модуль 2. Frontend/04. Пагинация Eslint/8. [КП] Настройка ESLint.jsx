@@ -15,7 +15,7 @@
 
 // +++++++++++++++++++++++++++
 // # на Windows
-// npm i -g eslint
+// npm i -g eslint     // если он глобально уже стоит переходим к следующей команде
 // ++++++++++++++++++++++++
 // # на Mac / Linux
 // sudo npm i -g eslint
@@ -32,7 +32,8 @@ eslint --init
 
 2 Мы используем ES6 и поэтому выбираем import/export:
 
-3 Выбираем, очевидно, React. Далее мы не используем TypeScript:
+3 Выбираем, очевидно, React. 
+3.1 Далее мы не используем TypeScript:
 
 4 Исполняем код в браузере:
 
@@ -46,7 +47,7 @@ eslint --init
 
 9 Дожидаемся установки:
 
-Из менеджеров пакетов будем использовать npm.
+10. Из менеджеров пакетов будем использовать npm.
 
 Перезапускаем наш проект и видим множество ошибок:
 
@@ -85,7 +86,7 @@ module.exports = {
   }
 };
 
-******************** МОЙ ПЕРВЫЙ ВАР ************
+******************** ЭТО вариан образовался у мене спустя 9 месяцев ************
 module.exports = {
   env: {
       browser: true,
@@ -100,42 +101,26 @@ module.exports = {
   plugins: ['react'],
   rules: {
       indent: ['error', 4],
-      semi: ['error', 'never'],  // НЕТ точке с запятой в конце строки
-      'space-before-function-paren': ['error', 'never'],
-
-      // Использование ОДИНАРНЫХ кавычек
-      quotes: ['error', 'single', { allowTemplateLiterals: true }]
-  }
-}
-************************************************************
-
-******************** МОЙ второй ВАР ************
-
-module.exports = {
-  env: {
-      browser: true,
-      es2021: true
-  },
-  extends: ['plugin:react/recommended', 'standard'],
-  parserOptions: {
-      ecmaFeatures: {
-          jsx: true
-      },
-      ecmaVersion: 12,
-      sourceType: 'module'
-  },
-  plugins: ['react'],
-  rules: {
-      indent: [0, 4],
+      semi: ['error', 'never'],
       'space-before-function-paren': [
           'error',
           { anonymous: 'always', named: 'never' }
       ],
       'multiline-ternary': ['off'],
-      quotes: ['error', 'single', { allowTemplateLiterals: true }]
+      quotes: [
+          'error',
+          'single',
+          {
+              allowTemplateLiterals: true
+          }
+      ]
   }
 }
-// semi вообще нет
+************************************************************
+
+
+
+
 ************************************************************
 
 Подробнее можно ознакомиться по ссылкам:
@@ -154,12 +139,12 @@ quotest: ссылка  https://eslint.org/docs/latest/rules/quotes
   semi: true
 };
 
-*********** МОЙ ПЕРВЫЙ и второй ВАР ************
+*********** ЭТО вариан образовался у мене спустя 9 месяцев ************
 module.exports = {
     trailingComma: 'none',
     tabWidth: 4,
     semi: false,   // точка с запятой удалить
-   singleQuote: true   // двойные ковычки удалит
+    singleQuote: true   // двойные ковычки удалит
 }
 ********************************************
 
