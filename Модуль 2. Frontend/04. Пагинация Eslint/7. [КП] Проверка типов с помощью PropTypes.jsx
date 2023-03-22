@@ -9,6 +9,8 @@
 
 npm i prop-types
 
+impt - имрорт проп тайпса
+
 // pagination.jsx
 import React from "react";
 import _ from "lodash";
