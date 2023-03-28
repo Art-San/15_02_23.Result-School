@@ -1,55 +1,6 @@
 // ЗАМЫКАНИЯ В JS за 15 минут: ОТ и ДО | Что такое лексическое окружение и как связано с замыканием?
 // https://www.youtube.com/watch?v=mI6Jcfsgma4
 
-function makeCounter(count) {
-    return function () {
-        return count++
-    }
-}
-
-let counter1 = makeCounter(0)
-let counter2 = makeCounter(0)
-
-console.log(counter1()) // 0
-console.log(counter1()) // 1
-
-console.log(counter2()) // 0
-console.log(counter2()) // 1
-
-// // читаемм сверху вниз
-
-Создается
-1. глобальное
-ссылка: -> null
-переменные: {
-    makeCounter: function
-    counter1: function   // добовляется уже после этого вызова makeCounter1(0)
-    counter2: function   // добовляется уже после этого вызова makeCounter(0)
-}
-
-// // Происходит первый вызов "let counter = makeCounter(0)"
-
-// создается
-2. локальное makeCounter1
-ссылка: -> на глобальное лекс. окруж
-переменные: {
-    count: 0                                // Хотя мы и не создаем count, он создается автоматом
-}
-
-создается
-3. локальное makeCounter2
-ссылка: -> на глобальное лекс. окруж
-переменные: {
-    count: 0                                // Хотя мы и не создаем count, он создается автоматом
-}
-
-// создается
-// 4. counter1
-// ссылка: -> на makeCounter1
-// переменные: {
-//     c
-// }
-
 //---------------для понимания замыкания  Первое  что нужно понять это
 //--------------------------- ЛЕКСИЧЕСКОЕ ОКРУЖЕНИЕ ---------------------
 // Лексическое окружение
