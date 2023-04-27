@@ -6,7 +6,7 @@ docker build -t jfd . //(-t-называем, (.)-в конце указывае
 
 clear
 // команда для проверки наличия образа 
-docker image ls
+docker images
 
 REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
 mernblog     latest    df9c4f05a7a0   20 minutes ago   174MB
