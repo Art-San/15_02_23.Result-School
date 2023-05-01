@@ -15,7 +15,7 @@ https://selectel.ru/blog/tutorials/how-to-generate-ssh/
 но  как это работает не знаю
 А теперь знаю (https://selectel.ru/blog/tutorials/how-to-generate-ssh/)
 
-1. Откройте терминал и выполните команду:
+1. Откройте терминал и выполните команду: Windows PowerShell
 // ssh-keygen -t rsa
 
 
