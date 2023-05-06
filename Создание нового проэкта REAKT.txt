@@ -7,3 +7,5 @@ npm i react-router-dom@5.3.0
 
 REACT_APP_FIREBASE_KEY = 
 .env.development
+
+Переменные окружения. DotEnv
