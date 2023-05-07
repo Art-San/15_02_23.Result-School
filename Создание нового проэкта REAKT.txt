@@ -8,4 +8,6 @@ npm i react-router-dom@5.3.0
 REACT_APP_FIREBASE_KEY = 
 .env.development
 
+https://frontend-15-firebase-default-rtdb.europe-west1.firebasedatabase.app/
+
 Переменные окружения. DotEnv
