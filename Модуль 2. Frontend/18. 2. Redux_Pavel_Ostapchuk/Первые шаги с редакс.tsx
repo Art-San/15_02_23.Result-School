@@ -75,34 +75,63 @@ const initialState = {
 // }, [])
 
 
-=================Redux tolkit======================================================
+// =================Redux tolkit======================================================
+1. идем в store/rootReducer.js
 
-  // withour redux
-  // const [usersList, setUsersList] = useState([])
-  // const [isLoading, setIsLoading] = useState(false)
-  // console.log(usersList)
-  // const getUsers = async () => {
-  //   try {
-  //     setIsLoading(true)
-  //     const { data } = await $api.get('/users')
-  //     setUsersList(data)
-  //     setIsLoading(false)
-  //   } catch (error) {
-  //     setIsLoading(false)
-  //     console.error('Ошибка:', error.message)
-  //   }
-  // }
-  // useEffect(() => {
-  //   getUsers()
-  // }, [])
-  //+++++++++++++++++++++++++++++++++++++++++++
-  // Vanilla Redux
+// import { configureStore } from '@reduxjs/toolkit'
+// const { combineReducers } = require('redux')
 
-  const dispatch = useDispatch()
-  const { userData: usersList, loading: isLoading } = useSelector(
-    getUsersStateSelector
-  )
+// const rootReducer = combineReducers({
+  usersPage: UsersSlice.reducer // появилось позже
+// })
 
-  useEffect(() => {
-    dispatch(featchUsersAsync())
-  }, [dispatch])
+// export const store = configureStore({
+//   reducer: rootReducer
+// })
+
+2. идем store/UsersPage/reducer.js 
+// import { createSlice } from '@reduxjs/toolkit/dist/createSlice'
+
+// // Init Redux-toolkit
+// const initialState = {
+//   userData: [],
+//   loading: false,
+//   error: null
+// }
+
+// export const UsersSlice = createSlice({
+//   name: 'Users',
+//   initialState,
+//   reducers: {
+//     fetchUsers(state) {
+//       state.loading = true
+//     },
+//     fetchUsersSuccess(state, { payload }) {
+//       state.loading = false
+//       state.userData = payload
+//     },
+//     fetchUsersFailure(state, { payload }) {
+//       state.loading = false
+//       state.error = payload
+//     }
+//   }
+// })
+
+3. идем store/UsersPage/actions.js и занимаемся экшенами
+// import { UsersSlice } from './reducer'
+// import { UsersService } from './users-service'
+// const { fetchUsers, fetchUsersSuccess, fetchUsersFailure } = UsersSlice.actions
+
+// export const featchUsersAsync = () => async (dispatch) => {
+//   try {
+//     dispatch(fetchUsers())
+//     const { data } = await UsersService.getUsers()
+//     dispatch(fetchUsersSuccess(data))
+//   } catch (error) {
+//     console.error(error)
+//     dispatch(fetchUsersFailure('Ошибка!'))
+//   }
+// }
+import { createAsyncThunk } from "@reduxjs/toolkit";
+
+export const featchUsersAsync = createAsyncThunk
