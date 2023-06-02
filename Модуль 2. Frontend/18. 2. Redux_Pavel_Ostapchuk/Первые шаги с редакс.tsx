@@ -132,6 +132,3 @@ const initialState = {
 //     dispatch(fetchUsersFailure('Ошибка!'))
 //   }
 // }
-import { createAsyncThunk } from "@reduxjs/toolkit";
-
-export const featchUsersAsync = createAsyncThunk
