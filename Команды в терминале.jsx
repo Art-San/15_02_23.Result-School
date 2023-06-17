@@ -1,4 +1,3 @@
-
 // 1. УДАЛЕНИЕ
 //  ----  rm
 // rm YTb_Telegram_bot_that_talks_to_ChatGPT_API.Vladilen_M // удалит фаил
@@ -12,10 +11,9 @@
 // 2. ПЕРЕМЕЩЕНИЕ
 // ----- cd -------
 // cd YTb_Telegram_bot_that_talks_to_ChatGPT_API.Vladilen_M // поподаем в нужную папку
-// ---- cd .. --- 
+// ---- cd .. ---
 // cd .. // на один уровень вверх
 
-// 3. СОЗДАТЬ фаил 
+// 3. СОЗДАТЬ фаил
 // -----  touch ------
 // touch production.json
-
