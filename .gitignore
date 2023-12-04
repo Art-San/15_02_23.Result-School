@@ -6,9 +6,11 @@
 
 server/dist
 server/node_modules
+server/.env
 
 client
 client/.next/
+client/.env
 client/.pnp
 client/.pnp.js
 client/node_modules
