@@ -2,11 +2,13 @@ git branch - посмотреть ветки
 
 git branch "pagination" - добавить ветку "pagination" название без ковычек
 
-git status - просмотр изменений
+git status - просмотр изменений 
 
-git add . +++ добовление фалов в стейдж
+git add . +++ добавление файлов в стейдж
 
 git commit -m "разделение веток"
+
+git checkout -b feature/h1 "создание и переключение на новую"
 
 git checkout master --- переключение между ветками
 
