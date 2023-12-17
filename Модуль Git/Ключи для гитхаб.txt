@@ -1,4 +1,4 @@
-1 Скачивание репозитория на компьютер--- git clone
+1 Скачивание репозитория на компьютер--- git clone https://github.com/adrianhajdin/anime_vault.git 'название папки'
 
 2.Инициализация проекта Git--- git init
 
