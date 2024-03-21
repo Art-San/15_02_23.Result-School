@@ -1,3 +1,4 @@
+// https://docs.nestjs.com/exception-filters#built-in-http-exceptions:~:text=)%3B%0A%7D-,Built%2Din%20HTTP%20exceptions,-%23
 // 1
 throw new Error(error)
 // Это общий класс исключений в JavaScript, используемый 
@@ -26,7 +27,8 @@ import {
  ServiceUnavailableException, 
  ConflictException, 
  HttpException, 
- ValidationException 
+ ValidationException,
+ NotAcceptableException
 } from '@nestjs/common';
 
 // 2. Пример использования NotFoundException
@@ -98,7 +100,11 @@ throw new ValidationException([
 // Возвращает HTTP-статус 400 и содержит информацию 
 // о неверно переданных данных.
 
-
+// Пример использования NotAcceptableException
+throw new NotAcceptableException('The requested data format is not supported.')
+// сервер генерирует ответ с кодом 
+// состояния 406 и сообщением об ошибке, 
+// указывающим на то, что запрошенный формат данных не поддерживается.
 
 
 
