@@ -34,7 +34,6 @@
 //     console.log(err)
 // })
 
-
 //========================== async await
 // const delay = (ms) => {
 //     return new Promise(resolve => {
@@ -42,7 +41,6 @@
 //     })
 
 // }
-
 
 // const url = 'https://jsonplaceholder.typicode.com/todos'
 
@@ -59,29 +57,26 @@
 //========================== async await try catch
 
 const delay = (ms) => {
-    return new Promise(resolve => {
-        setTimeout(() => resolve(), ms)
-    })
-
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(), ms)
+  })
 }
-
 
 const url = 'https://jsonplaceholder.typicode.com/todos'
 
-async function frtchAsyncTodos() {
-    console.log('Fetch todo start')
-    await delay(2000)
-    try {
-        const response = await fetch(url)
-        const data = await response.json()
-        console.log('Data', data)
-    } catch (error) {
-       console.error('error', error)
-    } finally {
-        console.log('finally')
-    }
-    
-   
+async function fitchAsyncTodos() {
+  console.log('Fetch todo start')
+  await delay(4000)
+  console.log('await delay(2000)')
+  try {
+    const response = await fetch(url)
+    const data = await response.json()
+    console.log('Data', data)
+  } catch (error) {
+    console.error('error', error)
+  } finally {
+    console.log('finally')
+  }
 }
 
-frtchAsyncTodos()
+fitchAsyncTodos()
