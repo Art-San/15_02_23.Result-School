@@ -1,16 +1,35 @@
 git branch
-
 git log --pretty=oneline
 
-touch file2.txt
+1.
+добавили file1.txt
 
+2.
 git add .
 git status
 
+2.
 git commit -m "add new file1.txt"
 
+4.
 git push
 
+5.
 git tag // показывает существующие теги
-
 git tag v1.0.0 // прописать тег
+git push origin v1.0.0 // делаем пуш тегу, чтоб он на гит хабе появился
+
+
+добавили file2.txt
+
+git add .
+git commit -m "add new file2.txt"
+
+git tag v1.0.1
+git push origin v1.0.1
+
+git checkout v1.0.0 // переключение между тегами 
+
+Удалить тег 
+git tag -d v1.0.1 // локально
+git push origin --delete v1.0.1 // удалено на гит хабе
