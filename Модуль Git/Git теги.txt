@@ -1,0 +1,16 @@
+git branch
+
+git log --pretty=oneline
+
+touch file2.txt
+
+git add .
+git status
+
+git commit -m "add new file1.txt"
+
+git push
+
+git tag // показывает существующие теги
+
+git tag v1.0.0 // прописать тег
