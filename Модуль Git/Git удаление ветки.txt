@@ -1,6 +1,12 @@
+Удаление локально
 git branch - посмотреть ветки
 
 git branch -d Название ветки ---- удалить ветку в редакторе
 
 git checkout master --- переключение между ветками
 
+
+В удаленном репозитории Git
+git push origin --delete 02.signIn
+             или
+git push origin -d 02.signIn
