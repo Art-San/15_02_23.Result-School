@@ -4,7 +4,6 @@
 // React Native и может быть стилизован с помощью свойства style.
 
 import { View, Text } from 'react-native'
-
 ;<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
   <Text>Это простой макет с использованием View</Text>
 </View>
@@ -17,7 +16,6 @@ import { View, Text } from 'react-native'
 // React Native и обеспечивает прокрутку как по вертикали, так и по горизонтали.
 
 import { ScrollView, Text } from 'react-native'
-
 ;<ScrollView>
   <Text>Это длинный текст, который может не поместиться на экране.</Text>
 </ScrollView>
@@ -29,9 +27,53 @@ import { ScrollView, Text } from 'react-native'
 // SafeAreaView гарантирует, что ваше приложение не будет перекрывать эти области.
 
 import { SafeAreaView } from 'react-native'
-
 ;<SafeAreaView
   style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
 >
   <Text>Это безопасная область</Text>
 </SafeAreaView>
+
+// FlatList - это компонент React Native, предназначенный
+//  для отображения прокручиваемого списка данных.
+//  Он оптимизирован для производительности, особенно
+//  когда работает с большими наборами данных,
+//  благодаря механизму "ленивой" рендеринга, который позволяет
+//  отображать только те элементы списка, которые в данный момент
+//  видны на экране. Это значительно уменьшает использование
+//  памяти и улучшает производительность приложения.
+
+// FlatList принимает различные свойства,
+// включая data (массив данных для отображения),
+// renderItem (функция, которая определяет,
+// как каждый элемент списка должен быть отрендерен),
+// и keyExtractor (функция, которая определяет уникальный ключ
+// для каждого элемента списка).
+
+import { FlatList, Text } from 'react-native'
+
+const data = [
+  { id: '1', title: 'Item 1' },
+  { id: '2', title: 'Item 2' }
+  // Дополнительные элементы...
+]
+
+;<FlatList
+  data={data}
+  renderItem={({ item }) => <Text>{item.title}</Text>}
+  keyExtractor={(item) => item.id}
+/>
+
+// TouchableOpacity - это компонент React Native,
+// который делает его дочерние элементы "прикасаемыми".
+// Это означает, что при нажатии на элемент,
+// его прозрачность изменяется, создавая эффект "прикосновения".
+// TouchableOpacity часто используется для кнопок и других интерактивных
+// элементов.
+
+// TouchableOpacity принимает свойство onPress,
+// которое определяет функцию, вызываемую при нажатии на элемент.
+import { TouchableOpacity, Text } from 'react-native'
+
+;<TouchableOpacity onPress={() => console.log('Нажато')}>
+  <Text>Нажми на меня</Text>
+</TouchableOpacity>
