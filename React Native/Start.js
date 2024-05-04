@@ -73,7 +73,14 @@ const data = [
 // TouchableOpacity принимает свойство onPress,
 // которое определяет функцию, вызываемую при нажатии на элемент.
 import { TouchableOpacity, Text } from 'react-native'
-
 ;<TouchableOpacity onPress={() => console.log('Нажато')}>
   <Text>Нажми на меня</Text>
 </TouchableOpacity>
+
+// <Text
+// className="text-white text-2xl"
+// numberOfLines={1}
+// // style={{ width: 200, textOverflow: 'ellipsis' }}
+// >
+// Ваш очень длинный текст, который может не поместиться в одну строку
+// </Text>
