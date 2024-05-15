@@ -15,7 +15,8 @@ function test(a: string): number | string | Boolean {
   return true
 }
 
-const test2 = (a: number): string => {
+// "noImplicitAny": true
+const test2 = (a): string => {
   return String(a * 2)
 }
 

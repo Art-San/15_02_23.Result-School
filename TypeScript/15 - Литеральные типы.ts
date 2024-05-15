@@ -1,6 +1,6 @@
 // Литеральные немного напоминают енам
 
-let c: 'string' = 'string'
+let v: 'string' = 'string'
 
 type actionType = 'up' | 'down'
 
