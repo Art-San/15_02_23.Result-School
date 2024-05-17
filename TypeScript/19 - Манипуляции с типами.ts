@@ -20,6 +20,10 @@ type Person = (typeof myArr)[number]
 type Age = (typeof myArr)[number]['age']
 
 // Также мы можем работать с типами как с условиями
+// interface IMsg {
+//   message: unknown
+// }
+// type MessageOf<T> = T extends IMsg ? T['message'] : never  // Это мое
 type MessageOf<T> = T extends { message: unknown } ? T['message'] : never
 
 interface Email {
@@ -46,3 +50,5 @@ type OptionsFlag<Type> = {
 // самый редкий случай использования типов, это летеральные типы
 type world = 'world'
 type Greeting = `hello ${world}`
+
+// На практике попробовать замапить правильно один тип на другой, попробовать правильно описать входящие типы

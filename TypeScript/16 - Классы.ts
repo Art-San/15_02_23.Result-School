@@ -78,38 +78,39 @@
 // point. // x y z
 
 // ====== Экстендить немного про методы доступность
-// class Point1 {
-//   x: number
-//   y: number
+class Point8 {
+  x: number
+  y: number
 
-//   constructor(x: number, y: number) {
-//     this.x = x
-//     this.y = y
-//   }
+  constructor(x: number, y: number) {
+    this.x = x
+    this.y = y
+  }
 
-//   //   private general() {
-//   //     console.log('general общий')
-//   //   }
-//   //   interior() {
-//   //     this.general()
-//   //   }
+  //   private general() {
+  //     console.log('general общий')
+  //   }
+  //   interior() {
+  //     this.general()
+  //   }
 
-//   protected closed() {
-//     console.log('closed')
-//   }
-//   // Не будет доступен с наружи, но будет доступен в конструкторе класса D4Point
-// }
+  protected closed() {
+    console.log('closed')
+  }
+  // Не будет доступен с наружи, но будет доступен в конструкторе класса D4Point
+}
 
-// class D4Point extends Point1 {
-//   z: number
+class D4Point extends Point8 {
+  z: number
 
-//   constructor(x: number, y: number, z: number) {
-//     super(x, y)
-//     this.z = z
-//   }
-// }
+  constructor(x: number, y: number, z: number) {
+    super(x, y)
+    this.z = z
+    this.closed()
+  }
+}
 
-// const point = new D4Point(0, 0, 0)
+const point = new D4Point(0, 0, 0)
 // point. // x y z
 
 // ====== Экстендить немного про методы переопределять

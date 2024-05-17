@@ -26,14 +26,16 @@ const cix = (point: IPoint) => {
 
 const myCanvas = document.getElementById('canvas') as HTMLCanvasElement
 //========================================
-type Point = {
+type Point5 = {
   x: number
   y: number
 }
 
-type D3Point = Point & {
+type D3Point = Point5 & {
   z: number
 }
 type stringOrNumber = string | number
 
-function print(coord: D3Point) {}
+function print(coord: D3Point) {
+  coord.y
+}
