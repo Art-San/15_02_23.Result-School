@@ -1,3 +1,4 @@
+// Полезно использовать когда мы хотим ограничить область значений той или иной переменной
 // числовой
 // enum Direction {
 //   Nor = 1, // с числовым вариантом хватит значения для первого элемента
@@ -52,3 +53,24 @@ const enum ConstEnum {
 }
 
 let c1 = ConstEnum.A
+
+// теперь пример с невер
+
+enum Dice {
+  One = 1,
+  Two,
+  Three
+}
+
+function ruDice(dice: Dice) {
+  switch (dice) {
+    case Dice.One:
+      return 'один'
+    case Dice.Two:
+      return 'два'
+    case Dice.Three:
+      return 'три'
+    default:
+      const a: never = dice // never обозначает что эта переменная ни когда не примет значение
+  }
+}

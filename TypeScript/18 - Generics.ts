@@ -14,9 +14,10 @@ logTime<number>(1)
 
 function logTime2<T>(num: T): T {
   if (typeof num === 'string') {
-    num.toLowerCase()
+    num.toLocaleUpperCase()
   } else if (typeof num === 'number') {
-    num.toString()
+    const numString = num.toString().toLocaleUpperCase()
+    // numString.toLocaleUpperCase()
   }
   return num
 }
@@ -25,7 +26,7 @@ function logTime2<T>(num: T): T {
 
 interface MyInterface {
   // transformer: (a: number) => number // хотим использовать со стрингой, не проблема
-  //   transformer: <T>(a: T) => T // но если на вход тип Т, а на выходе другой тип тоже не проблема
+  // transformer: <T>(a: T) => T // но если на вход тип Т, а на выходе другой тип тоже не проблема
   transformer: <T, G>(a: T) => G
 }
 
