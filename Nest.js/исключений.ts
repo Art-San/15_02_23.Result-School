@@ -28,6 +28,7 @@ import {
  ConflictException, 
  HttpException, 
  ValidationException,
+ HttpStatus,
  NotAcceptableException
 } from '@nestjs/common';
 
@@ -82,6 +83,7 @@ throw new ConflictException('Конфликт');
 // который уже существует. Возвращает HTTP-статус 409.
 
 // Пример использования HttpException с произвольным статусом
+throw new HttpException(`Ненайден документ`, HttpStatus.NOT_FOUND)
 throw new HttpException('Сообщение об ошибке', 418);
 // HttpException: Базовый класс для всех HTTP-исключений в Nest.js. 
 // Позволяет создавать пользовательские исключения 
