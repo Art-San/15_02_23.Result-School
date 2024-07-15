@@ -15,8 +15,16 @@
 // VITE
 // npm create vite@latest
 
+// backend
 // package.json
 // npm init -y
 
 // typescript
 // npm i typescript
+// npx tsc --init // и получим tsconfig.json
+
+// запуск проекта когда ни чего еще нет
+// node ./backend/index.ts
+
+// создать папку
+//  mkdir "NAME"
