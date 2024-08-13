@@ -27,17 +27,17 @@
 //  WEB api предоставляет TimeOut, слушателей событий, загрузка файлов и фото отправка, fetch запросы
 
 // Пример с setTimeout
-function log(value) {
-  console.log(value)
-}
+// function log(value) {
+//   console.log(value)
+// }
 
-log('start')
+// log('start')
 
-setTimeout(() => {
-  log('timeout')
-}, 3000)
+// setTimeout(() => {
+//   log('timeout')
+// }, 3000)
 
-log('end')
+// log('end')
 
 // 1. Первым в стек попадает log('start') и сразу выходит.
 // Функция log('start') вызывает console.log('start'),
@@ -74,16 +74,16 @@ log('end')
 
 // Пример с addEventListener
 
-const button1 = document.getElementById('button1')
-const button2 = document.getElementById('button2')
+// const button1 = document.getElementById('button1')
+// const button2 = document.getElementById('button2')
 
-button1.addEventListener('click', () => {
-  log('click1')
-})
+// button1.addEventListener('click', () => {
+//   log('click1')
+// })
 
-button2.addEventListener('click', () => {
-  log('click1')
-})
+// button2.addEventListener('click', () => {
+//   log('click1')
+// })
 
 // 1. первым попадает первый button1.addEventListener выполняется, а WEB api регистрирует слушатель события на кнопку button1
 // 2. вторым попадает второй button1.addEventListener выполняется, а WEB api регистрирует слушатель события на кнопку button2
@@ -113,17 +113,17 @@ button2.addEventListener('click', () => {
 // *************************   ***********************************
 
 // Пример Promise
-log(1)
+// log(1)
 
-setTimeout(() => {
-  log(2)
-}, 0)
+// setTimeout(() => {
+//   log(2)
+// }, 0)
 
-Promise.resolve().then(() => {
-  log(3)
-})
+// Promise.resolve().then(() => {
+//   log(3)
+// })
 
-log(4)
+// log(4)
 
 // 1. log(1) ---> 2. log(4) ---> log(3) ---> log(2) Такая будет последовательность в консоле НО
 //     Call Stack
@@ -202,3 +202,89 @@ log(4)
 // *                       *   *                                 *   *                                          *
 // *                       *   *  () => {log(2)}                 *   *  Promise.resolve().then(() => {log(3)})  *
 // *************************   ***********************************   ********************************************
+
+// Что создают мИкротаски?
+// 1. промисы -- Когда вы используете Promise.resolve() или создаете промис, который завершается (resolve), и добавляете обработчик с помощью .then() или .catch(), эти обработчики добавляются в очередь микрозадач (Microtask Queue).
+// 2. queueMicrotask - Функция queueMicrotask() позволяет явно добавлять функцию в очередь микрозадач.
+// 2. mutationObserver - Этот API позволяет отслеживать изменения в DOM и асинхронно реагировать на них. Когда изменения фиксируются, MutationObserver добавляет свои колбэки в очередь микрозадач.
+
+// Что создают мАкротаски?
+// 1. setTimeout и setInterval
+// 2. Обработчики событий: Любые колбэки, связанные с событиями, такими как клики, прокрутка, ввод с клавиатуры и т.д., добавляются в очередь макротасок.
+// 3. Браузерные нюансы (Рендеринг I/O операции)
+// * I/O операции: Обработка входных/выходных операций, таких как чтение файлов, сетевые запросы и т.п., тоже добавляется в очередь макротасок.
+// 4. MessageChannel: API для передачи сообщений между разными частями приложения. Колбэк, переданный в MessageChannel, также добавляется в очередь макротасок.
+
+function log1(value) {
+  console.log(value)
+}
+
+log1('1')
+
+setTimeout(() => {
+  log1('setTimeout 1')
+
+  Promise.resolve().then(() => {
+    log1('Promise setTimeout')
+  })
+
+  // Проверял что эти микротаски выполнятся кучей
+  // queueMicrotask(() => {
+  //   log1('queueMicrotask setTimeout 1')
+  // })
+  // queueMicrotask(() => {
+  //   log1('queueMicrotask setTimeout 2')
+  // })
+}, 0)
+
+setTimeout(() => {
+  log1('setTimeout 2')
+}, 0)
+
+queueMicrotask(() => {
+  log1('queueMicrotask 1')
+})
+
+Promise.resolve().then(() => {
+  log1('Promise 1')
+})
+
+queueMicrotask(() => {
+  log1('queueMicrotask 2')
+})
+
+Promise.resolve().then(() => {
+  log1('Promise 2')
+})
+
+log1('2')
+
+// Call Stack
+// *                       *                                                        WEB API
+// * log1('1')             *                                           *                                                *
+// *************************                                           *   setTimeout(() => {log1('setTimeout 2')}, 0)  *
+// * log1('2')             *                                           *                                                *
+// *************************                                           *   setTimeout(() => {log1('setTimeout 1')}, 0)  *
+// *                       *                                           **************************************************
+// *                       *                                    Task queue
+// *                       *   ***********************************   ****************************************************************
+// *                       *   *   Макро task                    *   *  Микро task                                                  *
+// *                       *   *                                 *   *                                                              *                                                           *
+// *                       *   *  () => {log1('setTimeout 2')}   *   *  Promise.resolve().then(() => {log1('Promise 2')})           *
+// *                       *   *                                 *   *                                                              *
+// *                       *   *  () => {log1('setTimeout 1')    *   *  log1('queueMicrotask 2')                                    *
+// *                       *   *     log1('Promise setTimeout')  *   *  Promise.resolve().then(() => {log1('Promise 1')})           *
+// *                       *   *  }                              *   *  log1('queueMicrotask 1')                                    *
+// *************************   ***********************************   ****************************************************************
+//  + + +  на втором круге попадет Микро task после раскрытия этого колбэка () => {log1('setTimeout 1')}  Promise.resolve().then(() => {log1('Promise setTimeout')})
+
+// Порядок
+// log1('1')
+// log1('2')
+// log1('queueMicrotask 1')
+// log1('Promise 1')
+// log1('queueMicrotask 2')
+// log1('Promise 2')
+// log1('setTimeout 1')
+// log1('Promise setTimeout')
+// log1('setTimeout 2')
