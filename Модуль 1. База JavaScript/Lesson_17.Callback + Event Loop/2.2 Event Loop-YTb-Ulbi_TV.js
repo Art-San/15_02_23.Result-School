@@ -215,6 +215,7 @@
 // * I/O операции: Обработка входных/выходных операций, таких как чтение файлов, сетевые запросы и т.п., тоже добавляется в очередь макротасок.
 // 4. MessageChannel: API для передачи сообщений между разными частями приложения. Колбэк, переданный в MessageChannel, также добавляется в очередь макротасок.
 
+// Это пример из видео
 function log1(value) {
   console.log(value)
 }
@@ -222,11 +223,10 @@ function log1(value) {
 log1('1')
 
 setTimeout(() => {
-  log1('setTimeout 1')
-
   Promise.resolve().then(() => {
     log1('Promise setTimeout')
   })
+  log1('setTimeout 1')
 
   // Проверял что эти микротаски выполнятся кучей
   // queueMicrotask(() => {
