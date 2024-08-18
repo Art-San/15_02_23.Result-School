@@ -31,3 +31,23 @@
 // но и передает значительную информацию о нем самому сайту,
 // что может быть использовано для персонализации пользовательского опыта,
 // аутентификации или других целей.
+
+'use strict'
+// console.log('this is :', this)
+// 2. script или module
+// хост среда содержит в нуьтри себя runtime и внутри этого runtime выполняет наш код, например браузер это хост, нода это хост
+// хост среда по умолчанию имеет возможность установить свое значение THIS
+// v8 --module = undefined // не в script, module
+// браузере = Window {...}
+// node = {}
+// v8 = [object global] // script
+// Значение для This определено спецификацией хост среда
+
+// 3. function Environment
+function doLogThis() {
+  var doArrowThing = () => console.log('this is: ', this)
+  doArrowThing()
+}
+doLogThis()
+
+// 40:29
