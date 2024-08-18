@@ -1,3 +1,29 @@
+// model WorkingHour {
+//   workingHourId   Int  @id @default(autoincrement())
+//   locationId      Int
+//   startTime       String? // может быть null
+//   endTime         String?
+//   weekdayIndex    Int
+
+//   location        Location @relation(fields: [locationId], references: [locationId])
+
+//   @@map("working_hours")
+// }
+const locationId = 1
+const allHoursForLocation = this.dbService.workingHour.findMany({
+  where: {
+    locationId: locationId,
+    startTime: {
+      // Условие для проверки, что startTime не равно null
+      not: null
+    }
+  },
+  orderBy: {
+    // workingHourId: 'asc',
+    weekdayIndex: 'asc'
+  }
+})
+
 // ======= include
 // model Location {
 //   locationId   Int      @id @default(autoincrement())
