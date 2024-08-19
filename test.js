@@ -252,3 +252,5 @@ Number.prototype.doThing = function () {
 // "Yo".doThing(); 		// this будет связан со значением new String("Yo")
 ;(12).doThing()
 // doThing();
+
+// 1.22:20
