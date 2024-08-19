@@ -31,59 +31,196 @@
 // но и передает значительную информацию о нем самому сайту,
 // что может быть использовано для персонализации пользовательского опыта,
 // аутентификации или других целей.
+// Александр
+
+// THIS - это индификатор (переменная (или, точнее, ссылка на объект))
+// значение которого устанавливается в зависимости от обстоятельств вызова функции или метода.
+
+// 1. This and Global Environment
+// This внутри функции
+// 'use strict'
+// console.log('this is :', this) // нет
+
+// 2. script или module
+// Я нутри модуля ?
+// Да, если внутри модуля то this = undefined
 
 'use strict'
 // console.log('this is :', this)
-// 2. script или module
-// хост среда содержит в нуьтри себя runtime и внутри этого runtime выполняет наш код, например браузер это хост, нода это хост
+//  нет не внутри модуля, в script
+// хост среда содержит в нутри себя runtime и внутри этого runtime выполняет наш код, например браузер это хост, нода это хост
 // хост среда по умолчанию имеет возможность установить свое значение THIS
-// v8 --module = undefined // не в script, module
-// браузере = Window {...}
-// node = {}
-// v8 = [object global] // script
+
+// Module
+// 1. v8 --module = undefined // не в script, module ( специальный флаг --module как буто бы загружался модуль)
+
+// Script
+// 1. v8 = [object global]
+// 2. браузере = Window {...}
+// 3. node = {}
 // Значение для This определено спецификацией хост среда
 
 // 3. function Environment
-function doLogThis() {
-  var doArrowThing = () => console.log('this is: ', this)
-  doArrowThing()
-}
-doLogThis()
+// Это нормальная функция ? // Нет, она стрелочная
+// function doLogThis() {
+//   var doArrowThing = () => console.log('this is: ', this)
+//   doArrowThing()
+// }
+// doLogThis()
 
+// 4.Arror Function Envaronmet
+// function doLogThis() {
+//   var doArrowThing = () => console.log('this is: ', this)
+//   doArrowThing()
+// }
+// doLogThis()
+// Нет doArrowThing не нормальная, значит перейти к родительскому окружению
+
+// 5. Пример 2.2 function Environment
+// Это нормальная функция ? // doLogThis да,
+// function doLogThis() {
+//   var doArrowThing = () => console.log('this is: ', this)
+//   doArrowThing()
+// }
+// doLogThis()
+// =========================================
 // 1. Вызов функции это именно то что приводит к тому
 // что THIS начинает быть связанным с каким то значением
+// 2. Если эта функция стрелочная то она этого не делает
+// 3. Пример: Представте что любая обычная(нормальная не =>) функция имеет всегда один аргумент, это THIS
+// Это this связывается с каким то значением в момент когда вызывается функция
+// ===========================================
 
-// 2. Если эта функция стрелочная то ана этого не делает
+// 6. this и вызов функции
+// function doLogThis() {
+//   console.log(1, 'this is: ', this) // undefined
+// }
+// doLogThis()
+// 1. Если this не как не задан, то он undefined
 
-// 3. Прмемер: Представте что любая обычная(нормальная не =>) функция имеет всегда один аргумент, это THIS
-// Номальная
+// 7. this и call, apply, bind
+// function doLogThis() {
+//   console.log(1, 'this is: ', this) // call =  { name: 'это АРГ' },  apply =  { name: 'это АРГ' }, bind = { name: 'это АРГ' }
+//   // console.log(2, 'this is: ', this) // call =  1,  apply =  1, bind = 1
+// }
 
-// ОТ Phind
-// 1. В JavaScript, контекст this внутри функции определяется тем, как и где функция была вызвана.
-// Для обычных функций (не стрелочных), this устанавливается в зависимости от контекста вызова:
-// *** Если функция вызывается как метод объекта, this будет ссылаться на этот объект.
-// *** Если функция вызывается как конструктор (с использованием new), this будет ссылаться на создаваемый экземпляр объекта.
-// *** Если функция вызывается как обычная функция (не как метод или конструктор),
-// this будет равен глобальному объекту (window в браузерах, global в Node.js)
-// в небрежном режиме или undefined в строгом режиме ('use strict').
+// var thisArg = { name: 'это АРГ' }
+// // var thisArg = 1
+// doLogThis.call(thisArg)
+// doLogThis.apply(thisArg)
+// doLogThis.bind(thisArg)()
 
-//
-// 2. Стрелочные функции в JavaScript не имеют собственного this.
-// Вместо этого они захватывают значение this из окружающего лексического контекста,
-// в котором они были объявлены. Это означает, что this внутри стрелочной функции
-// всегда будет указывать на то же значение, что и this в месте, где функция была создана,
-// независимо от того, как и где функция вызывается позже.
+// 8. this и new
+// Видим NEW ? Да, значит this связан {}
+// function doLogThis() {
+//   console.log(1, 'this is: ', this) // oLogThis {}
+// }
+// new doLogThis()
+// new doLogThis // = обычный вызов функции
+// new - это выражение вызывает функцию, и this связывается с пустым объектом
+// new - это выражение вызывает функцию, можем вызвать любую кроме стрелочной (=>)
 
-// Обычная функция
-function normalFunction() {
-  console.log(this)
+// 9. this и дот нотация
+// function doLogThis() {
+//   console.log(1, 'this is: ', this)
+// }
+
+// doLogThis()
+
+// 10. ЧТО ЗА в РОТ НОТАЦИИ
+// что такое дот нотация?
+// Дот нотацией (dot notation) в JavaScript, называют синтаксис,
+// когда два идентификатора разделены между собой точкой (dot).
+// Например:
+// theObj.theProperty;
+// Его полным аналогом является синтаксис:  theObj["theProperty"]
+
+// Вызов функции в дот нотации
+// Вызов функции в dot нотации выглядит
+// следующим образом:
+// theObj.doThing();
+// theObj["doThing"]();
+
+// 11. this и дот нотация
+// функция фызвана в дот нотации ? нет, this = undefined
+// function doLogThis() {
+//   console.log(1, 'this is: ', this)
+// }
+
+// doLogThis()
+
+// 12. this и дот нотация
+// функция фызвана в дот нотации ? да
+// this будет равен индефикатору что стоит перед точкой(дот)
+
+// function doLogThis() {
+//   console.log('this is: ', this)
+// }
+
+// const theObj = {
+//   name: 'Murych'
+// }
+// theObj.doLogThis = doLogThis
+
+// theObj.doLogThis()
+
+// 13. Пример наоборот
+// 1. Видим call, apply, bind ? нет
+// 2. Видим new ? нет
+// 3. dot notation ? нет
+// вывод; this = undefined
+// const theObj = {
+//   name: 'Murych',
+//   doLogThis: function () {
+//     console.log('this is: ', this)
+//   }
+// }
+// var doLogThisGlobal = theObj.doLogThis
+// doLogThisGlobal()
+
+//   ----- 14-15 важно помнить как функция вызвана
+// 1. с помощью call, apply, bind ? нет
+// 2. с помощью new ? нет
+// 3. с помощью dot notation ? нет
+// this = undefined
+
+// 14. Пример наоборот - 2
+// const theObj = {
+//   name: 'Murych',
+//   doLogThis: function () {
+//     console.log('this is: ', this)
+//   }
+// }
+
+// setTimeout(theObj.doLogThis, 1)
+
+// 15. Пример наоборот - 3
+// const theObj = {
+//   name: 'Murych',
+//   doLogThis: function () {
+//     console.log('this is: ', this)
+//   }
+// }
+// var doLogThis = theObj.doLogThis
+// setTimeout(doLogThis, 1)
+
+// 16. APi call
+function doHandleClick() {
+  console.log('this is: ', this)
 }
-normalFunction() // Выведет глобальный объект или undefined в строгом режиме
 
-// Стрелочная функция
-const arrowFunction = () => {
-  console.log(this)
-}
-arrowFunction() // Зависит от контекста, в котором была создана
+document.body.addEventListener('click', doHandleClick) // <body>...</body>
+// document.body.addEventListener('click', doHandleClick.bind({ yo: 'yo' })) // yo: 'yo'
 
-// 40:29
+// 1. JavaScript является встраиваемым языком скриптов, что означает,
+// что он не существует сам по себе, а должен быть встроен в какую-то среду.
+//  Обычно JavaScript встроен либо в браузер, либо в среду выполнения, такую как Node.js или D8.
+//  В связи с этим можно сделать следующий вывод: в JavaScript существует набор функций,
+//  определённых спецификацией языка (ECMAScript), а также сторонние API, предоставляемые окружением,
+//  которые позволяют JavaScript взаимодействовать с внешними ресурсами
+//  и выполнять задачи, не определённые в самой спецификации языка.
+
+// Путаница с this часто возникает, когда мы начинаем работать с API,
+// потому что согласно стандарту языка JavaScript любое API может назначить
+// значение this по своему усмотрению, что иногда приводит
+// к неожиданным результатам и нарушению интуитивных ожиданий.

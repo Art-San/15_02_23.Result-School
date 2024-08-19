@@ -48,7 +48,8 @@ console.log(mulBy5(2)(5))
 
 // Пример 5 Функция вызовов 2 а может быть и больше
 const log = (level) => (message) => console[level](message)
-
+// Вызов функции в дот нотации
+// console[level](message) аналог console.log(message)
 // log
 // error
 const logInfo = log('log')
