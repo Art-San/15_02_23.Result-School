@@ -10,7 +10,7 @@
 // Я нутри модуля ?
 // Да, если внутри модуля то this = undefined
 
-// 'use strict'
+'use strict'
 // console.log('this is :', this)
 //  нет не внутри модуля, в script
 // хост среда содержит в нутри себя runtime и внутри этого runtime выполняет наш код, например браузер это хост, нода это хост
@@ -183,14 +183,14 @@
 // к неожиданным результатам и нарушению интуитивных ожиданий.
 
 // 17.
-const theObj = {
-  name: 'Murych',
-  doLogThis: function () {
-    console.log('this is: ', this)
-  }
-}
+// const theObj = {
+//   name: 'Murych',
+//   doLogThis: function () {
+//     console.log('this is: ', this)
+//   }
+// }
 
-setTimeout(theObj.doLogThis, 1)
+// setTimeout(theObj.doLogThis, 1)
 
 // 1. v8 = undefined
 // 2. браузере = Window {...}
@@ -208,3 +208,116 @@ setTimeout(theObj.doLogThis, 1)
 // Если предыдушие пункты не подошли то  this = undefined
 
 // This это особый аргумент нормальной функции, нормальная функция вызывается минимум с одним аргументом и это this
+
+// =================================================================================
+// ('use strict')
+// Если используется 'use strict', то при вычислении this оно всегда будет именно тем значением,
+// которое было связано с this изначально, без каких-либо изменений.
+
+// Если режим 'non strict' (нестрогий режим), то this может быть преобразовано.
+// Если this содержит примитивное значение (например, строку или число),
+// оно будет автоматически преобразовано в объект через соответствующий конструктор (String, Number и т.д.).
+
+// String.prototype.doThingStrict = function () {
+//   'use strict'
+//   console.log(1, 'this is:', this instanceof Object, this)
+// }
+
+// String.prototype.doThing = function () {
+//   console.log(2, 'this is:', this instanceof Object, this)
+// }
+
+// Number.prototype.doThing = function () {
+//   // 'use strict' в этом режиме будет this is: 12
+//   // 'non strict' в этом режиме будет this is: [Number: 12]
+//   console.log('this is:', this instanceof Object, this)
+// }
+
+// 'Yo'.doThingStrict() // this будет связан со значением "Yo"
+// 'Yo'.doThing() // this будет связан со значением new String("Yo")
+// const num = 12
+// 12..doThing() // в браузере работает
+// num.doThing() // this is: [Number: 12]
+// doThing()
+
+//======================================================
+// Пример первый со стрелочной
+'use strict'
+function doLogThis() {
+  var doArrowThing = () => console.log('this is: ', this)
+  doArrowThing()
+}
+doLogThis()
+
+// Пример второй со стрелочной
+
+// В этом примере:
+// 1. Стрелочная функция doArrowThing использует значение this из глобального окружения.
+// 2. Поскольку мы в скрипте, значение this будет зависеть от того, как хост-среда (например, браузер)
+// определяет this в глобальном контексте.
+// 'use strict'
+// var doArrowThing = () => console.log(2, 'this is: ', this)
+
+// function doLogThis() {
+//   doArrowThing()
+// }
+
+// doLogThis()
+
+// var doArrowThing = () => console.log('this is: ', this)
+
+// Пример третий со стрелочной
+// const theObj = {
+//   name: 'Murych',
+//   doSayYourName: function () {
+//     doArrowThing()
+//   }
+// }
+// theObj.doSayYourName() // не смотря на то что сдесь dot notation this все еще в глобальном окружении
+
+// doArrowThing определена в глобальном окружении.
+// 1. Находится ли this в нормальной функции?
+// Нет, это стрелочная функция.
+
+// 2. Куда мы идем дальше?
+// Поскольку это стрелочная функция, this наследуется от родительского окружения,
+// которым является глобальное окружение (а не то место, где вызвана функция).
+
+// 3. В глобальном окружении:
+// Нужно определить, находимся ли мы в модуле или в скрипте. Мы не в модуле, а в скрипте.
+
+// 4. Если в скрипте:
+// Значение this определяется хост-средой, что зависит от спецификации данной среды.
+
+// Пример четвертый со стрелочной
+// 'use strict'
+const theObj = {
+  name: 'theObject Murych',
+  returnFunction: function () {
+    var doArrowThing = () => console.log('this is: ', this)
+    return doArrowThing
+  }
+}
+const theSuperObj = {
+  name: 'Murych',
+  doSayYourName: function (duFinhg) {
+    duFinhg()
+  }
+}
+theSuperObj.doSayYourName(theObj.returnFunction())
+
+// чему равен this ?
+// 1. Где находится this?
+// * Внутри функции.
+
+// 2. Функция нормальная?
+// * Нет, это стрелочная функция.
+
+// 3. Где расположена стрелочная функция?
+// * Внутри обычной функции returnFunction объекта theObj.
+
+// 4. Как вызывается функция doArrowThing?
+// с помощью дот нотации
+
+// 5. Значит, чему равно this?
+// Значит this равен тому что слева от точки

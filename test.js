@@ -234,23 +234,98 @@
 
 // This это особый аргумент нормальной функции, нормальная функция вызывается минимум с одним аргументом и это this
 
-String.prototype.doThingStrict = function () {
-  'use strict'
-  console.log('this is:', this instanceof Object, this)
-}
+// Если 'use strict' то  при вычесление выражения THIS это всегда будет именно то что было и связано THIS
+// Если  'non strict' то это будет нечто что пройдет сначала через виртуальную функцию Object, если там будет не объект,
+// а какоето примитивное значение, то это значение будет пропущено через конструктор
 
-String.prototype.doThing = function () {
-  console.log('this is:', this instanceof Object, this)
-}
+// String.prototype.doThingStrict = function () {
+//   'use strict'
+//   console.log(1, 'this is:', this instanceof Object, this)
+// }
 
-Number.prototype.doThing = function () {
-  'use strict'
-  console.log('this is:', this)
-}
+// String.prototype.doThing = function () {
+//   console.log(2, 'this is:', this instanceof Object, this)
+// }
 
-// "Yo".doThingStrict(); 	// this будет связан со значением "Yo"
-// "Yo".doThing(); 		// this будет связан со значением new String("Yo")
-;(12).doThing()
+// Number.prototype.doThing = function () {
+//   // 'use strict'
+//   console.log('this is:', this)
+// }
+
+// 'Yo'.doThingStrict() // this будет связан со значением "Yo"
+// 'Yo'.doThing() // this будет связан со значением new String("Yo")
+// const num = 12
+// num.doThing() // this is: [Number: 12]
 // doThing();
 
-// 1.22:20
+// Пример со стрелочной
+// 'use strict'
+// 1
+// function doLogThis() {
+//   var doArrowThing = () => console.log('this is: ', this)
+//   doArrowThing()
+// }
+// doLogThis()
+
+// doArrowThing определина в глобальном окружение
+// 1. Вопрос в нормальной ли мы функции ?  Нет, мы встрелочной
+// 2. куды мы идем дальше ? к родительскому окружению, то есть к глобальному окружение (не туда где вызвана функция)
+// 3. в глобальном окружение встает вопрос мы в модуле или скрипте ? мы не в модуле, а в скрипте
+// 4. Если в скрипте значит this будет равен тому как определит его хост среда, смотри спецификацию
+
+// 2
+// var doArrowThing = () => console.log(2, 'this is: ', this)
+// // var doArrowThing = (
+// // () =>
+// // console.log('this is: ', this)
+// // )
+
+// function doLogThis() {
+//   doArrowThing()
+// }
+// doLogThis()
+
+// 3
+// 'use strict'
+// var doArrowThing = () => console.log('this is: ', this)
+
+// const theObj = {
+//   name: 'Murych',
+//   doSayYourName: function () {
+//     doArrowThing()
+//   }
+// }
+// theObj.doSayYourName()
+
+// 4
+'use strict'
+const theObj = {
+  name: 'theObject Murych',
+  returnFunction: function () {
+    var doArrowThing = () => console.log('this is: ', this)
+    return doArrowThing
+  }
+}
+const theSuperObj = {
+  name: 'Murych',
+  doSayYourName: function (duFinhg) {
+    duFinhg()
+  }
+}
+theSuperObj.doSayYourName(theObj.returnFunction())
+
+// чему равен this ?
+// 1. Где находится this?
+// * Внутри функции.
+
+// 2. Функция нормальная?
+// * Нет, это стрелочная функция.
+
+// 3. Где расположена стрелочная функция?
+// * Внутри обычной функции returnFunction объекта theObj.
+
+// 4. Как вызывается функция doArrowThing?
+// с помощью дот нотации
+
+// 5. Значит, чему равно this?
+// Значит this равен тому что слева от точки

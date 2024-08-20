@@ -1,3 +1,32 @@
+'use strict'
+// Если используется 'use strict', то при вычислении this оно всегда
+// будет именно тем значением, которое было связано с this изначально,
+// без каких-либо изменений.
+
+// Если режим 'non strict' (нестрогий режим), то this может быть преобразовано.
+// Если this содержит примитивное значение (например, строку или число),
+// оно будет автоматически преобразовано в объект через соответствующий
+// конструктор (String, Number и т.д.).
+
+String.prototype.doThingStrict = function () {
+  'use strict'
+  console.log(1, 'this is:', this instanceof Object, this)
+}
+
+String.prototype.doThing = function () {
+  console.log(2, 'this is:', this instanceof Object, this)
+}
+
+Number.prototype.doThing = function () {
+  console.log('this is:', this)
+}
+
+'Yo'.doThingStrict() // this будет связан со значением "Yo"
+'Yo'.doThing() // this будет связан со значением new String("Yo")
+const num = 12
+num.doThing() // this is: [Number: 12]
+
+// чему равно значение this
 // Чтобы понять, чему равно значение this, нужно рассмотреть
 // контекст, в котором вызывается функция, внутри которой находится this.
 
