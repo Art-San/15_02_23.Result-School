@@ -321,3 +321,53 @@ theSuperObj.doSayYourName(theObj.returnFunction())
 
 // 5. Значит, чему равно this?
 // Значит this равен тому что слева от точки
+
+// Тест 4: Комбинация стрелочной и обычной функций
+// this is:  undefined
+
+// 1. this находится в обычной функции, значит смотрим как она вызывается.
+// 2. а вызывается просто normalFunction(), без методов call, apply, bind, не используется new, и нет дот нотация
+// 3. значит undefined
+
+// Тест 5: Стрелочная функция и метод объекта
+// const obj = {
+//   name: 'Object Name',
+//   getName: () => {
+//     console.log(2, 'this is:', this.name)
+//   }
+// }
+
+// const anotherObj = {
+//   name: 'Another Name',
+//   callGetName: obj.getName
+// }
+
+// anotherObj.callGetName()
+
+// Тест 5: Стрелочная функция и метод объекта
+// this is:  undefined
+// Так как
+// 1. Находится в стрелочной функции, у этой функции нет this
+// 2. Смотрим выше, видим что находимся в объекте но не функции, значит в глобальном окружение.
+// 3. В глобальном окружение но не в модуле, а в скрипте. Я проверял через node, а у него согласно спецификаци пустой объкт и поля name там нет
+
+// Тест 6
+// function Person(name) {
+//   this.name = name
+//   this.getName = function () {
+//     return () => {
+//       console.log('this is:', this.name)
+//     }
+//   }
+// }
+
+// const person1 = new Person('Alice')
+// const person2 = new Person('Bob')
+
+// const nameFunc = person1.getName()
+// nameFunc.call(person2)
+
+// this is: 'Alice'
+// 1. this в стрелочной функции, смотрим значит выше
+// 2. выше у нас getName, смотрим как она вызывается.
+// 3. вызывается с помощью дот нотация  person1.getName(), значит this равен тому что перед точкой и это 'Alice'
