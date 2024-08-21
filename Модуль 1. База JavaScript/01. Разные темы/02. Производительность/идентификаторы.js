@@ -1,4 +1,5 @@
 // Идентификаторы
+// не гуд
 // Вар 1
 // 'use strict'
 // function doThing() {
@@ -17,6 +18,7 @@
 
 // doThing()
 
+// гуд
 // Вар 2
 // 'use strict'
 // function doThing() {
@@ -35,6 +37,7 @@
 
 // doThing()
 
+// тоже гуд
 // Вар 3
 // 'use strict'
 // function doThing() {
