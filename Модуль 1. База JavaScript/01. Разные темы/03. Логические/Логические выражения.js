@@ -19,7 +19,7 @@
 //                          |
 //                          |
 //                          V
-//                ToBoolean(leftVal)  -------- false --------->   return leftVal
+//                ToBoolean(leftVal)  -------- false --------->   return leftVal = вычисление Expression1
 //                          |                                           |
 //                          |                                           |
 //                          |                                           |
@@ -109,7 +109,7 @@ console.log(15, false || 0 || '' || 100 || 'end')
 //                          |                                           |                           |
 //                          |                                           |                           |
 //                          V                                           V                           V
-//              return Evaluation Expression2  <-------------------------                return return leftVal
+//              return Evaluation Expression2  <-------------------------                return leftVal = вычисление Expression1
 
 // Примеры
 // function defaultObject(theArg) {
