@@ -88,7 +88,7 @@ myFunction() // В строгом режиме: undefined; в небрежном
 const obj1 = {
   prop: 'Hello',
   method: () => {
-    console.log(this.prop) // Здесь this относится к глобальному контексту, а не к obj
+    console.log(this.prop) //node будет {},  Здесь this относится к глобальному контексту, а не к obj
   }
 }
 obj1.method()

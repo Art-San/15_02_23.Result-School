@@ -1,3 +1,4 @@
+// https://www.youtube.com/watch?v=biy50-ssgVQ
 // Идентификаторы
 // не гуд
 // Вар 1
