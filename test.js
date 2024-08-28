@@ -81,8 +81,51 @@
 
 // console.log(theList)
 
-var theThing = 1
+// var theThing = 1
 
-var doThing = () => ((theThing = 10), 1)
+// var doThing = () => ((theThing = 10), 1)
 
-console.log(doThing())
+// console.log(doThing())
+
+function log1(value) {
+  console.log(value)
+}
+
+log1('1')
+
+setTimeout(() => {
+  Promise.resolve().then(() => {
+    log1('Promise setTimeout')
+  })
+  log1('setTimeout 1')
+
+  // Проверял что эти микротаски выполнятся кучей
+  // queueMicrotask(() => {
+  //   log1('queueMicrotask setTimeout 1')
+  // })
+  // queueMicrotask(() => {
+  //   log1('queueMicrotask setTimeout 2')
+  // })
+}, 0)
+
+setTimeout(() => {
+  log1('setTimeout 2')
+}, 0)
+
+queueMicrotask(() => {
+  log1('queueMicrotask 1')
+})
+
+Promise.resolve().then(() => {
+  log1('Promise 1')
+})
+
+queueMicrotask(() => {
+  log1('queueMicrotask 2')
+})
+
+Promise.resolve().then(() => {
+  log1('Promise 2')
+})
+
+log1('2')
