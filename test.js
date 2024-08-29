@@ -87,45 +87,20 @@
 
 // console.log(doThing())
 
-function log1(value) {
-  console.log(value)
+function doThing() {
+  function doThingInner() {
+    debugger
+  }
+  debugger
+  doThingInner
 }
+console.log('hello  world')
+console.log('hello  world')
+console.log('hello  world')
+doThing()
 
-log1('1')
+// Js помещает для каждого блока кода в Execution Context Stack ссылку на структуру Execution Context,
+// а эта структура содержит все необходимое, чтобы обеспечить работу базового единиц этого блока кода
 
-setTimeout(() => {
-  Promise.resolve().then(() => {
-    log1('Promise setTimeout')
-  })
-  log1('setTimeout 1')
-
-  // Проверял что эти микротаски выполнятся кучей
-  // queueMicrotask(() => {
-  //   log1('queueMicrotask setTimeout 1')
-  // })
-  // queueMicrotask(() => {
-  //   log1('queueMicrotask setTimeout 2')
-  // })
-}, 0)
-
-setTimeout(() => {
-  log1('setTimeout 2')
-}, 0)
-
-queueMicrotask(() => {
-  log1('queueMicrotask 1')
-})
-
-Promise.resolve().then(() => {
-  log1('Promise 1')
-})
-
-queueMicrotask(() => {
-  log1('queueMicrotask 2')
-})
-
-Promise.resolve().then(() => {
-  log1('Promise 2')
-})
-
-log1('2')
+// Execution Context Stack это не тоже самое что CALL Stack у них разные правила попадание в них чего то ни было, и как следствие  порядок выполнения тоже разный
+// закончил 2:00
