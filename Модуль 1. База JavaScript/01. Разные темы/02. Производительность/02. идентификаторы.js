@@ -44,7 +44,7 @@
 // function doThing() {
 //   var theThing = 3
 
-//   function doInnerThing(theThing) {
+//   function doInnerThing() {
 //     var theSumator = 0
 
 //     var theCounter = theThing
@@ -56,7 +56,7 @@
 //     theThing = theCounter
 //     return theSumator
 //   }
-//   doInnerThing(theThing)
+//   doInnerThing()
 // }
 
 // doThing()
