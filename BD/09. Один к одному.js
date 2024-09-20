@@ -1,3 +1,6 @@
+// SELECT *
+// FROM person
+
 // Создать таблицу
 // CREATE TABLE person
 // (
