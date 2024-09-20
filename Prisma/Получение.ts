@@ -24,6 +24,25 @@ const allHoursForLocation = this.dbService.workingHour.findMany({
   }
 })
 
+const workingHours = this.dbService.workingHour.findMany({
+  where: {
+    locationId,
+    startTime: {
+      // Условие для проверки, что startTime не равно null
+      not: null
+    }
+  },
+  select: {
+    startTime: true,
+    endTime: true,
+    weekdayIndex: true
+  },
+  orderBy: {
+    // weekdayIndex: 'asc',
+    weekdayIndex: 'desc'
+  }
+})
+
 // ======= include
 // model Location {
 //   locationId   Int      @id @default(autoincrement())
