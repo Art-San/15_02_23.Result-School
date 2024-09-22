@@ -1,0 +1,4 @@
+https://vverh.digital/blog/pgadmin-backup-and-restore/
+
+ ERROR exit code 3221225781. 
+ https://stackoverflow.com/questions/77462578/pgadmin-error-when-restoring-database-from-tar-file
