@@ -1,3 +1,5 @@
+// WHERE - фильтр первичный
+
 // SELECT *
 // FROM customers;
 
