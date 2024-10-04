@@ -1,6 +1,5 @@
 // Пост фильтр
-// HAVING - фильтр вторичный
-// ставиться перед ORDER BY
+// HAVING - фильтр вторичный, ставиться перед ORDER BY
 
 // SELECT category_id, SUM(unit_price * units_in_stock)
 // FROM products

@@ -1,0 +1,5 @@
+// * INNER JOIN
+// * LEFT JOIN, RIGHT JOIN
+// * FULL JOIN
+// * CROSS JOIN
+// * SELF JOIN
