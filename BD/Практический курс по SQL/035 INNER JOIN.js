@@ -1,3 +1,4 @@
+// Внутреннее соединение
 // categories      -
 // customers       - клиент
 // employees       - сотрудники
