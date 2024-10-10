@@ -18,6 +18,9 @@
 // FROM suppliers
 // LEFT JOIN products ON suppliers.supplier_id = products.supplier_id
 
+// Через supplier_id выведе в  результирующий набор две колонки через название компании из suppliers(поставщики),
+// а во второй название продукта из таблицы products
+
 // SELECT company_name, product_name
 // FROM suppliers
 // INNER JOIN products ON suppliers.supplier_id = products.supplier_id
