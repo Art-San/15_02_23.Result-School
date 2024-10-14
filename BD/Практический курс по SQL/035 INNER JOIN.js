@@ -12,6 +12,30 @@
 // discount        - скидка
 // units_in_stock  -единиц на складе
 
+//    tab1           tab2
+//  k1  data-1     k2  data-2
+//   1    1         1    10
+//   2    2         2    20
+//   3    3         5    50
+//   4    4         6    60
+
+//                                          d1   d2
+// SELECT d1, d2                             1   10
+// FROM tab1                                 2   20
+// INNER JOIN tab2 ON tab1.k1 = tab2.k2
+
+//                                          d1   d2
+// SELECT d1, d2                             1   10
+// FROM tab1                                 2   20
+// LEFT JOIN tab2 ON tab1.k1 = tab2.k2       3   NULL
+//                                           4   NULL
+
+//                                          d1   d2
+// SELECT d1, d2                             1   10
+// FROM tab1                                 2   20
+// LEFT JOIN tab2 ON tab1.k1 = tab2.k2    NULL   50
+//                                        NULL   60
+
 // ========================  ===================================================
 // SELECT product_name, suppliers.company_name, units_in_stock
 // FROM products
