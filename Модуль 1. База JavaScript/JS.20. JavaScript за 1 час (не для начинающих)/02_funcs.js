@@ -23,6 +23,7 @@ const pow2 = (num = 2) => num ** 2
 
 // console.log(pow2())
 
+// console.log([1, 2, 3, 4, 5].map((n) => (n ** 2)))
 // console.log([1, 2, 3, 4, 5].map(pow2))
 // console.log([1, 2, 3, 4, 5].filter((n) => (n %= 2)))
 
