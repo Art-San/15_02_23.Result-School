@@ -18,15 +18,17 @@ const person = {
   notFound: 42
 }
 
-delete person.arrow
+console.log(123, 'person', person)
 
-const { firstName, lastName, year, notFound = 404 } = person
+// delete person.arrow
+
+// const { firstName, lastName, year, notFound = 404 } = person
 
 // console.log(notFound)
 
 // Object.keys(person).forEach((key) => console.log(person[key]))
 
-const person2 = { firstName: 'Maxim' }
+// const person2 = { firstName: 'Maxim' }
 
 // const bound = person.info.bind(person)
 // bound()
