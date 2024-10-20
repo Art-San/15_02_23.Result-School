@@ -1,0 +1,20 @@
+https://www.youtube.com/watch?v=XuFaQSW79rM&t=23s
+
+
+1. git clone "имя репозитория"
+
+2. git commit -m "Фикс бага"
+
+3. git add 
+
+4. git branch new_branch
+
+5. git checkout new_branch
+
+6. git push origin new_branch // отправили отправили ветку с комитами на гит хаб
+
+7. git pool origin new_branch // этой командой другой участник команды может скачать сеюе на комп ветку
+
+8. git rebase master // находясь на new_branch выполнив эту команду перенесем все комиты в ветку мастер
+
+9. git revert nlkncs6 // nlkncs6 это номер комитта откуда надо вернуть как было
