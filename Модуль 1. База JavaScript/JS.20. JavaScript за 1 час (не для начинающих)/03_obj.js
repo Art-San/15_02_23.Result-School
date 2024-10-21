@@ -33,5 +33,5 @@ console.log(123, 'person', person)
 // const bound = person.info.bind(person)
 // bound()
 
-// person.info.call(person2, 1, 2)
+// person.info.call(person2, 1, 2)  // call сразу взывает в отличии от bind, а отличия от apply доп параметры через запятую, так как apply в массиве
 // person.info.apply(person2, [1, 2])
