@@ -12,6 +12,8 @@
 // discount        - скидка
 // units_in_stock  -единиц на складе
 
+// Володя
+// https://www.youtube.com/watch?v=EHvzvwAv7RU&t=615s
 //    tab1           tab2
 //  k1  data-1     k2  data-2
 //   1    1         1    10
@@ -33,7 +35,7 @@
 //                                          d1   d2
 // SELECT d1, d2                             1   10
 // FROM tab1                                 2   20
-// LEFT JOIN tab2 ON tab1.k1 = tab2.k2    NULL   50
+// Right JOIN tab2 ON tab1.k1 = tab2.k2   NULL   50
 //                                        NULL   60
 
 // ========================  ===================================================
