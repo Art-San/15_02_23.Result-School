@@ -12,6 +12,8 @@
 // discount        - скидка
 // units_in_stock  -единиц на складе
 
+// all и any - квантификаторы
+// ====================== 1 ====================================
 // SELECT DISTINCT customers.company_name
 // FROM customers
 // JOIN orders USING(customer_id)
@@ -20,15 +22,16 @@
 
 // SELECT DISTINCT customers.company_name
 // FROM customers
-// WHERE customer_id = ANY(
+// WHERE customer_id = ANY( ..ANI Значит любой, какой либо
 // 	SELECT customer_id
 // 	FROM orders
 //     JOIN order_details USING(order_id)
 // 	WHERE quantity > 40
 // )
 
+// ====================== 2 ====================================
 // -- Подзапрс
-// SELECT AVG(quantity)
+// SELECT AVG(quantity) .. AVG среднее количество
 // FROM order_details
 
 // SELECT DISTINCT product_name, quantity
@@ -39,8 +42,10 @@
 // 	FROM order_details
 // )
 // ORDER BY quantity
+// ====================== 2 ====================================
 
 // -- Подзапрс
+// ALL - квантификатор
 // SELECT AVG(quantity)
 // FROM order_details
 // GROUP BY product_id
