@@ -5,8 +5,8 @@
 // clearTimeout(timeout)
 
 // setInterval(() => {
-// console.log('interval after 2 sec')
-// },2000)
+//   console.log('interval after 2 sec')
+// }, 2000)
 
 // ================================================
 
@@ -19,19 +19,19 @@
 // }, 2000)
 
 // ==============   promise 1 =========
-const delay = (wait = 1000) => {
-  const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const num = Math.floor(Math.random() * 10)
-      if (num >= 5) {
-        resolve([3])
-      } else {
-        reject('Данные пришли не те ')
-      }
-    }, wait)
-  })
-  return promise
-}
+// const delay = (wait = 1000) => {
+//   const promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       const num = Math.floor(Math.random() * 10)
+//       if (num >= 5) {
+//         resolve([3])
+//       } else {
+//         reject('Данные пришли не те ')
+//       }
+//     }, wait)
+//   })
+//   return promise
+// }
 
 // function getRandomInt(max) {
 //   return Math.floor(Math.random() * max)
@@ -75,7 +75,7 @@ const delay = (wait = 1000) => {
 // ==============   promise 2  =========
 const getData = () => new Promise((resolve) => resolve([1, 1, 2, 3, 5, 8, 13]))
 
-// getData().then((data) => console.log(data))
+getData().then((data) => console.log(data))
 
 async function asyncExample() {
   try {
